@@ -1,6 +1,6 @@
 package com.MegaTask.demo.auth;
 
-import com.sms.businesslogic.entity.Role;
+import com.MegaTask.demo.entity.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

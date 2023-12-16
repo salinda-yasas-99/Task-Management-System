@@ -10,9 +10,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import static com.sms.businesslogic.entity.Permission.*;
-import static com.sms.businesslogic.entity.Permission.CUSTOMER_DELETE;
-import static com.sms.businesslogic.entity.Role.*;
+import static com.MegaTask.demo.entity.Permission.*;
+
 import static org.springframework.http.HttpMethod.*;
 import static org.springframework.http.HttpMethod.DELETE;
 
@@ -32,16 +31,10 @@ public class SecurityConfiguration {
                 .requestMatchers("/api/v1/auth/**")
                 .permitAll()
 
-                .requestMatchers(GET,"/api/v1/category/**").hasAnyAuthority(ADMIN_READ.getPermission())
-                .requestMatchers(POST,"/api/v1/category/**").hasAuthority(ADMIN_CREATE.getPermission())
-                .requestMatchers(PUT,"/api/v1/category/**").hasAuthority(ADMIN_UPDATE.getPermission())
-                .requestMatchers(DELETE,"/api/v1/category/**").hasAuthority(ADMIN_DELETE.getPermission())
-
-                .requestMatchers(GET,"/api/v1/delivery/**").hasAnyAuthority(ADMIN_READ.getPermission(), CUSTOMER_READ.getPermission(), DELIVERY_PERSON_READ.getPermission())
-                .requestMatchers(POST,"/api/v1/delivery/**").hasAnyAuthority(ADMIN_CREATE.getPermission(), DELIVERY_PERSON_CREATE.getPermission())
-                .requestMatchers(PUT,"/api/v1/delivery/**").hasAnyAuthority(ADMIN_UPDATE.getPermission(), DELIVERY_PERSON_UPDATE.getPermission())
-                .requestMatchers(DELETE,"/api/v1/delivery/**").hasAuthority(ADMIN_DELETE.getPermission())
-
+                .requestMatchers(GET,"/api/v1/tasks/**").hasAnyAuthority(ADMIN_READ.getPermission())
+                .requestMatchers(POST,"/api/v1/tasks/**").hasAuthority(ADMIN_CREATE.getPermission())
+                .requestMatchers(PUT,"/api/v1/tasks/**").hasAuthority(ADMIN_UPDATE.getPermission())
+                .requestMatchers(DELETE,"/api/v1/tasks/**").hasAuthority(ADMIN_DELETE.getPermission())
 
                 .anyRequest()
                 .authenticated()

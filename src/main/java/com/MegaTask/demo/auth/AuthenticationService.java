@@ -2,7 +2,9 @@ package com.MegaTask.demo.auth;
 
 import com.MegaTask.demo.config.JwtService;
 import com.MegaTask.demo.entity.User;
+import com.MegaTask.demo.entity.Role;
 import com.MegaTask.demo.exception.EmailAlreadyExistException;
+import com.MegaTask.demo.exception.EmailOrPasswordIncorrectException;
 import com.MegaTask.demo.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
